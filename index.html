@@ -9,5 +9,18 @@
 </head>
 <body>
   <img src="./images/banner.png">
+  <script>
+    if(navigator && navigator.serviceWorker) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./service-worker.js')
+        .then(function(registration) {
+          console.log('注册成功');
+          console.log(registration);
+        }).catch(function(err) {
+          console.log(err);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
