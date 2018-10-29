@@ -2,11 +2,9 @@
 const CACHE_NAME = "lzwme_cache_v1.0.0";
 // 列举要默认缓存的静态资源，一般用于离线使用
 const urlsToCache = [
-	// '/offline.html',
-	// '/offline.png'
-	// '/wenda-m/',
-	'/css/style.css',
-	'/images/banner.png'
+	'/test-sw/',
+	'/test-sw/css/style.css',
+	'/test-sw/images/banner.png'
 ];
 console.log('install');
 // self 为当前 scope 内的上下文
