@@ -6,7 +6,6 @@ const urlsToCache = [
 	'/test-sw/css/style.css',
 	'/test-sw/images/banner.png'
 ];
-console.log('install');
 // self 为当前 scope 内的上下文
 self.addEventListener('install', event => {
 	// event.waitUtil 用于在安装成功之前执行一些预装逻辑
