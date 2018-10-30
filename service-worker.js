@@ -1,5 +1,5 @@
 // 用于标注创建的缓存，也可以根据它来建立版本规范
-const CACHE_NAME = "v4";
+const CACHE_NAME = "v5";
 // 列举要默认缓存的静态资源，一般用于离线使用
 const urlsToCache = [
 	'/test-sw/',
@@ -23,20 +23,20 @@ self.addEventListener('install', event => {
 });
 
 // 缓存更新
-// self.addEventListener('activate', function(event) {
-//   event.waitUntil(
-//     caches.keys().then(function(cacheNames) {
-//       return Promise.all(
-//         cacheNames.map(function(cacheName) {
-//           // 如果当前版本和缓存版本不一致
-//           if (cacheName !== CACHE_NAME) {
-//             return caches.delete(cacheName);
-//           }
-//         })
-//       );
-//     })
-//   );
-// });
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          // 如果当前版本和缓存版本不一致
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
 
 self.addEventListener('fetch', event => {
 	event.respondWith(caches.match(event.request).then((response) => {
