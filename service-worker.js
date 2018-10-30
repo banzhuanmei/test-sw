@@ -29,7 +29,7 @@ self.addEventListener('activate', function(event) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
           // 如果当前版本和缓存版本不一致
-          if (cacheName !== VERSION) {
+          if (cacheName !== CACHE_NAME) {
             return caches.delete(cacheName);
           }
         })
