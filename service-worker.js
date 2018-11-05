@@ -38,23 +38,28 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', event => {
-	event.respondWith(caches.match(event.request).then((response) => {
-		if (response !== undefined) {
-			return response;
-		} else {
-			return fetch(event.request).then(
-				() => {
-					let responseClone = response.clone();
-					caches.open(CACHE_NAME).then(
-						(cache) => {
-							cache.put(event.request, responseClone);
-						}
-					)
+	event.respondWith(
+		caches.match(event.request).then(
+			(response) => {
+				if (response !== undefined) {
 					return response;
+				} 
+				else {
+					return fetch(event.request).then(
+						() => {
+							let responseClone = response.clone();
+							caches.open(CACHE_NAME).then(
+								(cache) => {
+									cache.put(event.request, responseClone);
+								}
+							)
+							return response;
+						}
+					).catch(() => {
+						return cache.match('');
+					})
 				}
-			).catch(() => {
-				return cache.match('');
-			})
-		}
-	}))
+			}
+		)
+	)
 });
