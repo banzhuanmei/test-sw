@@ -4,7 +4,8 @@ const CACHE_NAME = "v6";
 const urlsToCache = [
 	'/test-sw/',
 	'/test-sw/css/style.css',
-	'/test-sw/images/banner.png'
+	'/test-sw/images/banner.png',
+	'/test-sw/data.js'
 ];
 // self 为当前 scope 内的上下文
 self.addEventListener('install', event => {
@@ -38,7 +39,6 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', event => {
-	console.log('fetch');
 	event.respondWith(
 		caches.match(event.request).then(
 			(response) => {
