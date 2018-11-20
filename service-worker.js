@@ -57,7 +57,7 @@ self.addEventListener('fetch', event => {
 							return response;
 						}
 					).catch(() => {
-						return cache.match('');
+						return caches.match('');
 					})
 				}
 			}
