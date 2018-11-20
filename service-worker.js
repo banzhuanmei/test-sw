@@ -38,12 +38,13 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', event => {
+	console.log('fetch');
 	event.respondWith(
 		caches.match(event.request).then(
 			(response) => {
 				if (response !== undefined) {
 					return response;
-				} 
+				}
 				else {
 					return fetch(event.request).then(
 						() => {

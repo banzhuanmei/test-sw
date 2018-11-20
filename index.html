@@ -9,6 +9,7 @@
 </head>
 <body>
   <img src="./images/banner.png">
+  <p>fetch数据：</p>
   <script>
     if(navigator && navigator.serviceWorker) {
       window.addEventListener('load', function() {
@@ -18,6 +19,16 @@
           console.log(registration);
         }).catch(function(err) {
           console.log(err);
+        });
+        fetch('./data.json').then((rs) => {
+          return rs.json();
+        }).then((data) => {
+          console.log(data);
+          let html = 'fetch数据：';
+          for (const key in data) {
+            html += `<p>${key}:${data[key]}</p>`
+          }
+          document.getElementsByTagName('p')[0].innerHTML = html;
         });
       });
     }
