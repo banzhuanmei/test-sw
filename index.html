@@ -23,7 +23,6 @@
         fetch('./data.js').then((rs) => {
           return rs.json();
         }).then((data) => {
-          console.log(data);
           let html = 'fetch数据：';
           for (const key in data) {
             html += `<p>${key}:${data[key]}</p>`
