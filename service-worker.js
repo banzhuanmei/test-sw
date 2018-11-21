@@ -18,9 +18,10 @@ self.addEventListener('install', event => {
 			console.log(cache);
 			// 添加要缓存的资源列表
 			return cache.addAll(urlsToCache);
-		}).then(() => {
-			return self.skipWaiting();
 		})
+		// }).then(() => {
+		// 	return self.skipWaiting();
+		// })
 	);
 });
 
