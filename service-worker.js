@@ -3,7 +3,7 @@ const CACHE_NAME = "v8";
 // 列举要默认缓存的静态资源，一般用于离线使用
 const urlsToCache = [
 	'/test-sw/',
-	// '/test-sw/css/style.css',
+	'/test-sw/css/style.css',
 	'/test-sw/images/banner.png',
 	'/test-sw/data.js',
 	'/test-sw/error.html'
