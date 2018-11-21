@@ -12,12 +12,12 @@
   <p>fetch数据：</p>
   <script>
     if(navigator && navigator.serviceWorker) {
-      window.addEventListener('load', function() {
+      window.addEventListener('load', () => {
         navigator.serviceWorker.register('/test-sw/service-worker.js')
-        .then(function(registration) {
+        .then(registration => {
           console.log('注册成功');
           console.log(registration);
-        }).catch(function(err) {
+        }).catch(err => {
           console.log(err);
         });
         fetch('./data.js').then((rs) => {
