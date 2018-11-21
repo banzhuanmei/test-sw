@@ -7,7 +7,7 @@ const urlsToCache = [
 	// '/test-sw/images/banner.png',
 	'/test-sw/data.js',
 	'/test-sw/error.html',
-	'/test-sw/images/waiting.png'
+	'https://club2.autoimg.cn/g2/M05/5C/4F/ChsEkFv1HyGAQgBhAAOL2ruTFjU535_500.jpg'
 ];
 // self 为当前 scope 内的上下文
 self.addEventListener('install', event => {
@@ -61,7 +61,7 @@ self.addEventListener('fetch', event => {
 							return response;
 						}
 					).catch(() => {
-						return caches.match('/test-sw/images/waiting.png');
+						return caches.match('https://club2.autoimg.cn/g2/M05/5C/4F/ChsEkFv1HyGAQgBhAAOL2ruTFjU535_500.jpg');
 					})
 				}
 			}
