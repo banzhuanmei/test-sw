@@ -6,7 +6,8 @@ const urlsToCache = [
 	'/test-sw/css/style.css',
 	// '/test-sw/images/banner.png',
 	'/test-sw/data.js',
-	'/test-sw/error.html'
+	'/test-sw/error.html',
+	'/test-sw/images/waiting.png'
 ];
 // self 为当前 scope 内的上下文
 self.addEventListener('install', event => {
