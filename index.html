@@ -13,7 +13,7 @@
   <script>
     if(navigator && navigator.serviceWorker) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/test-sw/service-worker.js', {scope: 'https://club2.autoimg.cn'})
+        navigator.serviceWorker.register('/test-sw/service-worker.js')
         .then(registration => {
           console.log('注册成功');
           console.log(registration);

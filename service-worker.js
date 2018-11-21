@@ -2,12 +2,12 @@
 const CACHE_NAME = "v10";
 // 列举要默认缓存的静态资源，一般用于离线使用
 const urlsToCache = [
-	// '/test-sw/',
-	// '/test-sw/css/style.css',
+	'/test-sw/',
+	'/test-sw/css/style.css',
 	// '/test-sw/images/banner.png',
-	// '/test-sw/data.js',
-	// '/test-sw/error.html',
-	'https://club2.autoimg.cn/g2/M05/5C/4F/ChsEkFv1HyGAQgBhAAOL2ruTFjU535_500.jpg'
+	'/test-sw/data.js',
+	'/test-sw/error.html',
+	'/test-sw/images/waiting.png'
 ];
 // self 为当前 scope 内的上下文
 self.addEventListener('install', event => {
@@ -61,7 +61,7 @@ self.addEventListener('fetch', event => {
 							return response;
 						}
 					).catch(() => {
-						return caches.match('https://club2.autoimg.cn/g2/M05/5C/4F/ChsEkFv1HyGAQgBhAAOL2ruTFjU535_500.jpg');
+						return caches.match('/test-sw/images/waiting.png');
 					})
 				}
 			}
