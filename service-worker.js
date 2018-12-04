@@ -4,10 +4,9 @@ const CACHE_NAME = "v10";
 const urlsToCache = [
 	'/test-sw/',
 	'/test-sw/css/style.css',
-	// '/test-sw/images/banner.png',
+	'/test-sw/images/banner.png',
 	'/test-sw/data.js',
-	'/test-sw/error.html',
-	'/test-sw/images/waiting.png'
+	// '/test-sw/images/waiting.png'
 ];
 // self 为当前 scope 内的上下文
 self.addEventListener('install', event => {
@@ -42,16 +41,21 @@ self.addEventListener('activate', event => {
   );
 });
 
+// 此处 event 为 FetchEvent
 self.addEventListener('fetch', event => {
+	// respondWith 劫持 http 相应，为页面的请求生成自定义的 response
 	event.respondWith(
+		// caches.match 通过匹配网络请求和 cache 里可获取资源的 url 和 vary header，确认是否可从缓存中获取资源
 		caches.match(event.request).then(
 			(response) => {
+				// 缓存中可以匹配到时，直接返回匹配到的资源
 				if (response !== undefined) {
 					return response;
 				}
-				else {
+				else { // 缓存中没有，请求后把资源放入缓存中
 					return fetch(event.request).then(
 						() => {
+							// 复制一份响应，放入名称为 CACHE_NAME 的缓存中
 							let responseClone = response.clone();
 							caches.open(CACHE_NAME).then(
 								(cache) => {
@@ -60,7 +64,7 @@ self.addEventListener('fetch', event => {
 							)
 							return response;
 						}
-					).catch(() => {
+					).catch(() => { // 异常时，可返回备用的信息
 						return caches.match('/test-sw/images/waiting.png');
 					})
 				}
