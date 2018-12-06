@@ -2,7 +2,8 @@
 const CACHE_NAME = "v10";
 // 列举要默认缓存的静态资源，一般用于离线使用
 const urlsToCache = [
-	'/test-sw/',
+	// '/test-sw/',
+	'https://banzhuanmei.github.io/test-sw/',
 	'/test-sw/css/style.css',
 	'/test-sw/images/banner.png',
 	'/test-sw/data.js',
