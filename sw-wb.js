@@ -20,7 +20,7 @@ var currentCacheNames = {
 // html 缓存
 workbox.routing.registerRoute(
   function({url, event}) {
-		console.log(url.hostname);
+		console.log('$$$$$$$$$$' + url.hostname);
     if (url.hostname === 'banzhuanmei.github.io') {
       return (new RegExp('/(.*)').test(url.pathname))
     } else {
