@@ -21,7 +21,7 @@ var currentCacheNames = {
 workbox.routing.registerRoute(
   function({url, event}) {
 		console.log(url.hostname);
-    if (url.hostname === 'qapro.autohome.com.cn') {
+    if (url.hostname === 'banzhuanmei.github.io') {
       return (new RegExp('/(.*)').test(url.pathname))
     } else {
       return false;
