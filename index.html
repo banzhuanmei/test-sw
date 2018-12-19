@@ -7,7 +7,7 @@
   <title>Service worker demo</title>
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="manifest" href="./manifest.json">
-  <link rel="apple-touch-icon" sizes="50x50" href="./images/register.png">
+  <link rel="apple-touch-icon" sizes="50x50" href="./images/banner.png">
 </head>
 <body>
   <img src="./images/banner.png">
@@ -32,6 +32,24 @@
           document.getElementsByTagName('p')[0].innerHTML = html;
         });
       });
+    }
+  </script>
+  <script>
+    if (window.Notification) {
+      function pushMes() {
+        new Notification('litanda', {
+          body: '收到一个回复',
+          icon: 'https://banzhuanmei.github.io/test-sw/images/msg-icon.png'
+        });
+      }
+      if (Notification.permission === 'granted') {
+        pushMes();
+      } 
+      else if (Notification.permission === 'default') {
+        Notification.requestPermission(() => {
+          pushMes();
+        });
+      }
     }
   </script>
 </body>
