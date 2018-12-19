@@ -1,7 +1,7 @@
 {
   "name": "A simple manifest demo~~",
   "short_name": "manifest",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
   "description": "A simply readable Hacker News app.",
