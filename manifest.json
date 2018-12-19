@@ -1,7 +1,7 @@
 {
   "name": "A simple manifest demo~~",
   "short_name": "manifest",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#fff",
   "description": "A simply readable Hacker News app.",
@@ -37,13 +37,13 @@
       "type": "image/png"
     }
   ],
-  "related_applications": [
-    {
-      "platform": "web"
-    },
-    {
-      "platform": "play",
-      "url": "https://banzhuanmei.github.io/test-sw/"
-    }
-  ]
+  // "related_applications": [
+  //   {
+  //     "platform": "web"
+  //   },
+  //   {
+  //     "platform": "play",
+  //     "url": "https://banzhuanmei.github.io/test-sw/"
+  //   }
+  // ]
 }
