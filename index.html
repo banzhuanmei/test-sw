@@ -15,7 +15,7 @@
   <script>
     if(navigator && navigator.serviceWorker) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./js/sw-wb.js')
+        navigator.serviceWorker.register('/test-sw/sw-wb.js')
         .then(registration => {
           console.log('注册成功');
           console.log(registration);
