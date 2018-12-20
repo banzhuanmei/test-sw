@@ -17,7 +17,6 @@ var currentCacheNames = {
   static: 'www:static',
   img: 'www:img'
 };
-console.log('$$$$$$$$$$' + url.hostname);
 // html、域名下资源缓存
 workbox.routing.registerRoute(
   function({url, event}) {
