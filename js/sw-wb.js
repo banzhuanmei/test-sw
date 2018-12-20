@@ -1,12 +1,13 @@
 importScripts ('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
 if (workbox) {
-	console.log(`Yay! workbox is loaded 🎉`);
+	console.log(`workbox is loaded 🎉`);
 }
 else {
-	console.log(`Boo! workbox didn't load 😬`);
+	console.log(`workbox didn't load 😬`);
 }
 workbox.setConfig({
-  debug: false
+  debug: false,
+  scope: '/js'
 });
 workbox.skipWaiting();
 workbox.clientsClaim();
@@ -16,7 +17,7 @@ var currentCacheNames = {
   static: 'www:static',
   img: 'www:img'
 };
-
+console.log('$$$$$$$$$$' + url.hostname);
 // html、域名下资源缓存
 workbox.routing.registerRoute(
   function({url, event}) {
