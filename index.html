@@ -35,23 +35,22 @@
     }
   </script>
   <script>
-    if (window.Notification) {
-      alert(11);
-      function pushMes() {
-        new Notification('litanda', {
-          body: '收到一个回复',
-          icon: 'https://banzhuanmei.github.io/test-sw/images/msg-icon.png'
-        });
-      }
-      if (Notification.permission === 'granted') {
-        pushMes();
-      } 
-      else if (Notification.permission === 'default') {
-        Notification.requestPermission(() => {
-          pushMes();
-        });
-      }
-    }
+    // if (window.Notification) {
+    //   function pushMes() {
+    //     new Notification('litanda', {
+    //       body: '收到一个回复',
+    //       icon: 'https://banzhuanmei.github.io/test-sw/images/msg-icon.png'
+    //     });
+    //   }
+    //   if (Notification.permission === 'granted') {
+    //     pushMes();
+    //   } 
+    //   else if (Notification.permission === 'default') {
+    //     Notification.requestPermission(() => {
+    //       pushMes();
+    //     });
+    //   }
+    // }
   </script>
 </body>
 </html>
